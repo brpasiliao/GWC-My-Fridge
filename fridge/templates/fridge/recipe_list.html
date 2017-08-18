@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Django Girls blog</title>
+    </head>
+    <body>
+        <div>
+            <h1><a href="">My Fridge</a></h1>
+        </div>
+
+        {% for recipe in recipes %}
+            <div>
+                <h1><a href="">{{ recipe.title }}</a></h1>
+                <p>{{ recipe.ingredients|linebreaksbr }}</p>
+                <p>{{ recipe.instructions|linebreaksbr }}</p>
+
+            </div>
+        {% endfor %}
+
+    </body>
+</html>
