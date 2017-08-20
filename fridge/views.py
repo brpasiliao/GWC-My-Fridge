@@ -3,6 +3,7 @@ from .models import Recipe
 from django.shortcuts import render, get_object_or_404
 from .forms import RecipeForm
 from django.shortcuts import redirect
+# from .forms import DeleteRecipeForm
 
 # Create your views here.
 def recipe_list(request):
@@ -28,12 +29,17 @@ def recipe_new(request):
 def recipe_edit(request, pk):
     recipe = get_object_or_404(Recipe, pk=pk)
     if request.method == "POST":
-        form = RecipeForm(request.POST, instance=recipe)
-        if form.is_valid():
-            recipe = form.save(commit=False)
-            recipe.author = request.user
-            recipe.save()
-            return redirect('recipe_detail', pk=recipe.pk)
+        if 'delete' in request.POST:
+            recipe.delete()
+            return redirect('recipe_list')
+        else:
+            form = RecipeForm(request.POST, instance=recipe)
+            if form.is_valid():
+                recipe = form.save(commit=False)
+                recipe.author = request.user
+                recipe.save()
+                return redirect('recipe_detail', pk=recipe.pk)
     else:
         form = RecipeForm(instance=recipe)
     return render(request, 'fridge/recipe_edit.html', {'form': form})
+

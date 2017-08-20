@@ -23,8 +23,9 @@ h1, h2, h3, h4 {
     font-family: 'Georgia', cursive;
 }
 
-.save {
-    float: right;
+.submit {
+    /*float: right;*/
+    padding: 20px,
 }
 
 .recipe-form textarea, .recipe-form input {
