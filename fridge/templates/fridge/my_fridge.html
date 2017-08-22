@@ -2,6 +2,15 @@
 
 {% block content %}
   <h1>My Fridge</h1>
+
+
+  {% for item in food %}
+
+  Name: {{ item.name }} <br />
+  Food expires: {{ item.expiration_date }}
+
+  {% endfor %}
+
   <form method="POST" class="recipe-form">{% csrf_token %}
       {{ food_form.as_p }}
       <button type="submit" class="submit btn btn-default">Save</button>

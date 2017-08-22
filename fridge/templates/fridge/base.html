@@ -1,59 +1,36 @@
 {% load staticfiles %}
 
 <html>
-
   <head>
-    <title>My Fridge</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/fridge.css' %}">
+      <title>My Fridge</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="{% static 'css/fridge.css' %}">
   </head>
   <body>
-    <div class="page-header">
-      <a href="{% url 'my_fridge' %}" class="top-menu"><span class="glyphicon glyphicon-asterisk"></span></a>
-      <h1><a href="/">My Fridge</a></h1>
-    </div>
-    <div class="content container">
-      <div class="row">
-        <div class="col-md-8">
-        {% block content %}
-        {% endblock %}
-        </div>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li class="active">
+          <li><a href="/">Home</a></li>
+          <li><a href="{% url 'my_fridge' %}">MyFridge</a></li>
+          <!-- <li><a href="https://ellacharlottecorn.github.io/myfridge/map.html">Food Around The World</a></li> -->
+          <li><a href="{% url 'recipe_new' %}">Add Recipe</a></li>
+          <!-- <li><a href="https://ellacharlottecorn.github.io/myfridge/myProfile.html">My Profile</a></li> -->
+        </ul>
       </div>
-    </div>
-  </body>
+    </nav>
 
-    <head>
-        <title>My Fridge</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{% static 'css/fridge.css' %}">
-    </head>
-    <body>
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <ul class="nav navbar-nav">
-            <li class="active">
-            <li><a href="/">Home</a></li>
-            <li><a href="https://ellacharlottecorn.github.io/myfridge/fridge.html">MyFridge</a></li>
-            <!-- <li><a href="https://ellacharlottecorn.github.io/myfridge/map.html">Food Around The World</a></li> -->
-            <li><a href="{% url 'recipe_new' %}">Add Recipe</a></li>
-            <!-- <li><a href="https://ellacharlottecorn.github.io/myfridge/myProfile.html">My Profile</a></li> -->
-          </ul>
+  <div class="jumbotron text-center">
+    <a href="/"><img src="https://mail-attachment.googleusercontent.com/attachment/u/0/?ui=2&ik=dc5a013798&view=att&th=15e0a491cff6355a&attid=0.1&disp=safe&realattid=ii_15e0a3781d1f0b73&zw&saddbat=ANGjdJ8weEwlVbd-Jj54nT2Qqqjb5EFCxoPUSzQDh7WY0ps0qZQ5_3O638sYGZrDoPw5hUvtrfj_xdRriCxbmlCT_8YjhDr4rt-yFZpbLv_Td-XI4XumfWVTjW9ESygyq9dWlkNDgw1iPN_Q6oc-pQM4OcuctRLwKF9Y77YFZAErQlt7PHiFuYfqq-HxkejT1Ok0pKXW8pAaIpA93o4sTq0usrnpVn5hU7RZObK4JdARixPnjcJcTMYrmr7vlTMzFCsSue5WMVKsjMr6iTBFjbEt_YvMDfq-yAK3vlOs6y_N6h0qGWr0qL4IV6FHkp60rYhsBKfj6U_pDC6TEiQqDDu8isyiY8mwCsA7dI4pUzPYVJ1wW2dVb0V8vjaS89Swben1-t8WnXphYTmxN1e7Vm60FGcV-TcnZr6lN4omc4uqpcTnwhrDBTeMqGJowu17Nh5SIkLUxQikbzhH9J0iL9RRsuVZAQ5R6qtzig1kW9nUKa3JnnF1aU5clmFzLQ0Jkue9L70W9M4jO976ceJKuXkduF3M4QqFePsqJl7lna1-K0j7zNSX1Lr6RGW48tx-5dxIi20T95HhE-wPpk8mBCFMYMSsaZmz0pwErINd7lcDzuWpfyOH1dKRhYkYYwY, https://mail.google.com/mail/u/0/" class="img-rounded" width="304" height="304"></a>
+  </div>
+      <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            </div>
         </div>
-      </nav>
-
-    <div class="jumbotron text-center">
-      <a href="/"><img src="https://mail-attachment.googleusercontent.com/attachment/u/0/?ui=2&ik=dc5a013798&view=att&th=15e0a491cff6355a&attid=0.1&disp=safe&realattid=ii_15e0a3781d1f0b73&zw&saddbat=ANGjdJ8weEwlVbd-Jj54nT2Qqqjb5EFCxoPUSzQDh7WY0ps0qZQ5_3O638sYGZrDoPw5hUvtrfj_xdRriCxbmlCT_8YjhDr4rt-yFZpbLv_Td-XI4XumfWVTjW9ESygyq9dWlkNDgw1iPN_Q6oc-pQM4OcuctRLwKF9Y77YFZAErQlt7PHiFuYfqq-HxkejT1Ok0pKXW8pAaIpA93o4sTq0usrnpVn5hU7RZObK4JdARixPnjcJcTMYrmr7vlTMzFCsSue5WMVKsjMr6iTBFjbEt_YvMDfq-yAK3vlOs6y_N6h0qGWr0qL4IV6FHkp60rYhsBKfj6U_pDC6TEiQqDDu8isyiY8mwCsA7dI4pUzPYVJ1wW2dVb0V8vjaS89Swben1-t8WnXphYTmxN1e7Vm60FGcV-TcnZr6lN4omc4uqpcTnwhrDBTeMqGJowu17Nh5SIkLUxQikbzhH9J0iL9RRsuVZAQ5R6qtzig1kW9nUKa3JnnF1aU5clmFzLQ0Jkue9L70W9M4jO976ceJKuXkduF3M4QqFePsqJl7lna1-K0j7zNSX1Lr6RGW48tx-5dxIi20T95HhE-wPpk8mBCFMYMSsaZmz0pwErINd7lcDzuWpfyOH1dKRhYkYYwY, https://mail.google.com/mail/u/0/" class="img-rounded" width="304" height="304"></a>
-    </div>
-        <div class="content container">
-          <div class="row">
-              <div class="col-md-8">
-              {% block content %}
-              {% endblock %}
-              </div>
-          </div>
-    </body>
-
+  </body>
 </html>
