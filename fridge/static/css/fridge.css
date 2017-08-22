@@ -1,6 +1,46 @@
+body {
+  background-color: rgb(196, 213, 235);
+}
+
 h1 a {
-    color: #FCA205;
-    font-family: 'Georgia';
+    color: rgb(0, 102, 153);
+    font-family: 'Arial Black';
+}
+
+.jumbotron{
+  background-color: rgb(196, 213, 235);
+}
+
+.jumbotron.text-center{
+  color: rgb(0, 102, 153);
+  text-align: center;
+  font-size: 50px;
+  font-family: arial black;
+}
+
+.container-fluid{
+  background-color: rgb(196, 213, 235);
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: arial black;
+}
+
+.navbar-nav{
+  background-color: rgb(196, 213, 235);
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: arial black;
+}
+
+li.active:hover{
+  background-color: rgb(0, 102, 153);
+  color: white;
 }
 
 .page-header {
@@ -10,7 +50,7 @@ h1 a {
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-    color: #ffffff;
+    color: rgb(0, 102, 153);
     font-size: 36pt;
     text-decoration: none;
 }
@@ -18,9 +58,11 @@ h1 a {
 .content {
     margin-left: 40px;
 }
-
+h1{
+  color: rgb(0, 102, 153);
+}
 h1, h2, h3, h4 {
-    font-family: 'Georgia', cursive;
+    font-family: 'Arial Black';
 }
 
 .submit {
@@ -33,7 +75,7 @@ h1, h2, h3, h4 {
 }
 
 .top-menu, .top-menu:hover, .top-menu:visited {
-    color: #ffffff;
+    color: rgb(0, 102, 153);
     float: right;
     font-size: 26pt;
     margin-right: 20px;
@@ -44,5 +86,5 @@ h1, h2, h3, h4 {
 }
 
 .recipe h1 a, .recipe h1 a:visited {
-    color: #000000;
+    color: rgb(0, 102, 153);
 }
