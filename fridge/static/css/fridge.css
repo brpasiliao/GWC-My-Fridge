@@ -3,12 +3,12 @@ body {
 }
 
 h1 a {
-    color: #FCA205;
-    font-family: 'Georgia';
+    color: rgb(0, 102, 153);
+    font-family: 'Arial Black';
 }
 
 .jumbotron{
-  background-color: white;
+  background-color: rgb(196, 213, 235);
 }
 
 .jumbotron.text-center{
@@ -84,5 +84,5 @@ h1, h2, h3, h4 {
 }
 
 .recipe h1 a, .recipe h1 a:visited {
-    color: #000000;
+    color: rgb(0, 102, 153);
 }
