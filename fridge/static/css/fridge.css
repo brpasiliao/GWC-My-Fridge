@@ -1,6 +1,46 @@
+body {
+  background-color: rgb(196, 213, 235);
+}
+
 h1 a {
     color: #FCA205;
     font-family: 'Georgia';
+}
+
+.jumbotron{
+  background-color: white;
+}
+
+.jumbotron.text-center{
+  color: rgb(0, 102, 153);
+  text-align: center;
+  font-size: 50px;
+  font-family: arial black;
+}
+
+.container-fluid{
+  background-color: rgb(196, 213, 235);
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: arial black;
+}
+
+.navbar-nav{
+  background-color: rgb(196, 213, 235);
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: arial black;
+}
+
+li.active:hover{
+  background-color: rgb(0, 102, 153);
+  color: white;
 }
 
 .page-header {
@@ -20,7 +60,7 @@ h1 a {
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Georgia', cursive;
+    font-family: 'Arial Black';
 }
 
 .submit {
@@ -33,7 +73,7 @@ h1, h2, h3, h4 {
 }
 
 .top-menu, .top-menu:hover, .top-menu:visited {
-    color: #ffffff;
+    color: rgb(0, 102, 153);
     float: right;
     font-size: 26pt;
     margin-right: 20px;

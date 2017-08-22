@@ -3,15 +3,29 @@
 <html>
     <head>
         <title>My Fridge</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="{% static 'css/fridge.css' %}">
     </head>
     <body>
-        <div class="page-header">
-          <a href="{% url 'recipe_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-          <h1><a href="/">My Fridge</a></h1>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <ul class="nav navbar-nav">
+            <li class="active">
+            <li><a href="https://ellacharlottecorn.github.io/myfridge/home.html">Home</a></li>
+            <li><a href="https://ellacharlottecorn.github.io/myfridge/fridge.html">MyFridge</a></li>
+            <li><a href="https://ellacharlottecorn.github.io/myfridge/map.html">Food Around The World</a></li>
+            <li><a href="https://ellacharlottecorn.github.io/myfridge/addRecipie.html">Add Recipe</a></li>
+            <li><a href="https://ellacharlottecorn.github.io/myfridge/myProfile.html">My Profile</a></li>
+          </ul>
         </div>
+      </nav>
+
+    <div class="jumbotron text-center">
+      <h1>My Fridge</h1>
+      <a href="{% url 'recipe_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+    </div>
         <div class="content container">
           <div class="row">
               <div class="col-md-8">
@@ -19,6 +33,5 @@
               {% endblock %}
               </div>
           </div>
-        </div>
     </body>
 </html>
