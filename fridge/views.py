@@ -45,8 +45,9 @@ def recipe_edit(request, pk):
     return render(request, 'fridge/recipe_edit.html', {'recipe_form': recipe_form})
 
 def my_fridge(request):
-    food = Food.objects.order_by('name')
-
+    food = Food.objects.order_by('food_type')
+    # food = foods.get(Food)
+    # food = Food.objects.get(Food)
     if request.method == "POST":
         food_form = FoodForm(request.POST)
         if food_form.is_valid():
