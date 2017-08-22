@@ -4,15 +4,27 @@
   <h1>My Fridge</h1>
 
 
-  {% for item in food %}
 
-  Name: {{ item.name }} <br />
-  Food expires: {{ item.expiration_date }}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Add Items to Fridge</h3>
+        <form method="POST" class="recipe-form">
+            {% csrf_token %}
+            {{ food_form.as_p }}
+            <button type="submit" class="submit btn btn-default">Save</button>
+        </form>
+      </div>
+      <div class="col-sm-4">
+        <h3>Fridge Items</h3>
+        {% for item in food %}
+        Food: {{ item.name }} <br />
+        Food expires: {{ item.expiration_date }}
+        {% endfor %}
+   	  </div>
+      <div class="col-sm-2">
+        <h3>Select</h3>
+        <input type="checkbox" name="vehicle1" value="">
+      </div>
 
-  {% endfor %}
-
-  <form method="POST" class="recipe-form">{% csrf_token %}
-      {{ food_form.as_p }}
-      <button type="submit" class="submit btn btn-default">Save</button>
-  </form>
 {% endblock %}
