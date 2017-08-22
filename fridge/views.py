@@ -1,9 +1,10 @@
-from django.shortcuts import render
 from .models import Recipe
-from django.shortcuts import render, get_object_or_404
+from .models import Food
 from .forms import RecipeForm
+from .forms import FoodForm
+from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
-# from .forms import DeleteRecipeForm
 
 # Create your views here.
 def recipe_list(request):
@@ -16,15 +17,15 @@ def recipe_detail(request, pk):
 
 def recipe_new(request):
     if request.method == "POST":
-        form = RecipeForm(request.POST)
-        if form.is_valid():
-            recipe = form.save(commit=False)
+        recipe_form = RecipeForm(request.POST)
+        if recipe_form.is_valid():
+            recipe = recipe_form.save(commit=False)
             recipe.author = request.user
             recipe.save()
             return redirect('recipe_detail', pk=recipe.pk)
     else:
-        form = RecipeForm()
-    return render(request, 'fridge/recipe_edit.html', {'form': form})
+        recipe_form = RecipeForm()
+    return render(request, 'fridge/recipe_new.html', {'recipe_form': recipe_form})
 
 def recipe_edit(request, pk):
     recipe = get_object_or_404(Recipe, pk=pk)
@@ -33,13 +34,23 @@ def recipe_edit(request, pk):
             recipe.delete()
             return redirect('recipe_list')
         else:
-            form = RecipeForm(request.POST, instance=recipe)
-            if form.is_valid():
-                recipe = form.save(commit=False)
+            recipe_form = RecipeForm(request.POST, instance=recipe)
+            if recipe_form.is_valid():
+                recipe = recipe_form.save(commit=False)
                 recipe.author = request.user
                 recipe.save()
                 return redirect('recipe_detail', pk=recipe.pk)
     else:
-        form = RecipeForm(instance=recipe)
-    return render(request, 'fridge/recipe_edit.html', {'form': form})
+        recipe_form = RecipeForm(instance=recipe)
+    return render(request, 'fridge/recipe_edit.html', {'recipe_form': recipe_form})
 
+def my_fridge(request):
+    if request.method == "POST":
+        food_form = FoodForm(request.POST)
+        if food_form.is_valid():
+            food = food_form.save(commit=False)
+            food.save()
+            return redirect('my_fridge')
+    else:
+        food_form = FoodForm()
+    return render(request, 'fridge/my_fridge.html', {'food_form': food_form})

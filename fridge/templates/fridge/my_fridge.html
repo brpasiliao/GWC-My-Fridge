@@ -1,10 +1,9 @@
 {% extends 'fridge/base.html' %}
 
 {% block content %}
-  <h1>Edit recipe</h1>
+  <h1>My Fridge</h1>
   <form method="POST" class="recipe-form">{% csrf_token %}
-      {{ recipe_form.as_p }}
+      {{ food_form.as_p }}
       <button type="submit" class="submit btn btn-default">Save</button>
-      <button type="submit" class="submit btn btn-default" name="delete" id="delete">Delete</button>
   </form>
 {% endblock %}
