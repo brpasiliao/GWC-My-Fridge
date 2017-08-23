@@ -18,10 +18,10 @@
     <div class="col-sm-4">
       <h3>Current Items</h3><br>
       {% for item in food %}
-      Name: {{ item.name }} <br />
-      Type: {{ item.food_type }} <br />
-      Food expires: {{ item.expiration_date }} <br />
-      <button type="submit" class="submit btn btn-default" name="delete">Delete</button> <br />
+        Name: {{ item.name }} <br />
+        Type: {{ item.food_type }} <br />
+        Food expires: {{ item.expiration_date }} <br />
+        <button type="submit" class="submit btn btn-default" name="delete">Delete</button> <br />
       {% endfor %}
     </div>
     <div class="col-sm-2">
