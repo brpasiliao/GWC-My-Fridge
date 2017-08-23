@@ -44,16 +44,23 @@ def recipe_edit(request, pk):
         recipe_form = RecipeForm(instance=recipe)
     return render(request, 'fridge/recipe_edit.html', {'recipe_form': recipe_form})
 
+def about_us(request):
+    return render(request, 'fridge/about_us.html')
+
 def my_fridge(request):
     food = Food.objects.order_by('food_type')
     # food = foods.get(Food)
     # food = Food.objects.get(Food)
     if request.method == "POST":
-        food_form = FoodForm(request.POST)
-        if food_form.is_valid():
-            food = food_form.save(commit=False)
-            food.save()
+        if 'delete' in request.POST:
+            food.delete()
             return redirect('my_fridge')
+        else:
+            food_form = FoodForm(request.POST)
+            if food_form.is_valid():
+                food = food_form.save(commit=False)
+                food.save()
+                return redirect('my_fridge')
     else:
         food_form = FoodForm()
     return render(request, 'fridge/my_fridge.html', {'food_form': food_form, 'food': food})

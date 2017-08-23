@@ -11,3 +11,5 @@ class FoodForm(forms.ModelForm):
     class Meta:
         model = Food
         fields = ('name', 'food_type', 'expiration_date',)
+
+# class DeleteFoodForm()
