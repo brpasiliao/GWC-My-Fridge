@@ -3,28 +3,33 @@
 {% block content %}
   <h1>My Fridge</h1>
 
-  {% for item in food %}
-    <!-- <form method="POST" class="recipe-form">{% csrf_token %}
-      {{ food_form.as_ul }}
-      <button type="submit" class="submit btn btn-default">Save</button>
-      <button type="submit" class="submit btn btn-default" name="delete">Delete</button>
-    </form>
-    <br /> -->
-
-    Name: {{ item.name }} <br />
-    Type: {{ item.food_type }} <br />
-    Food expires: {{ item.expiration_date }} <br />
-    <button type="submit" class="submit btn btn-default" name="delete">Delete</button> <br />
-
-  {% endfor %}
 
   <br />
-
-  <form method="POST" class="recipe-form">{% csrf_token %}
-    {{ food_form.as_p }}
-    <button type="submit" class="submit btn btn-default">Save</button>
-    <!-- <button type="submit" class="submit btn btn-default" name="delete">Delete</button> -->
-  </form>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <h3>Add New Item</h3><br>
+      <form method="POST" class="recipe-form">{% csrf_token %}
+        {{ food_form.as_p }}
+        <button type="submit" class="submit btn btn-default">Save</button>
+        <!-- <button type="submit" class="submit btn btn-default" name="delete">Delete</button> -->
+      </form>
+    </div>
+    <div class="col-sm-4">
+      <h3>Current Items</h3><br>
+      {% for item in food %}
+      Name: {{ item.name }} <br />
+      Type: {{ item.food_type }} <br />
+      Food expires: {{ item.expiration_date }} <br />
+      <button type="submit" class="submit btn btn-default" name="delete">Delete</button> <br />
+      {% endfor %}
+    </div>
+    <div class="col-sm-2">
+      <h3>Select</h3><br>
+      <input type="checkbox" value="">
+    </div>
+  </div>
+</div>
 
 
 {% endblock %}
