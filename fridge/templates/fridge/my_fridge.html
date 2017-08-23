@@ -9,7 +9,7 @@
   <div class="row">
     <div class="col-sm-6">
       <h3>Add New Item</h3><br>
-      <form method="POST" class="recipe-form">{% csrf_token %}
+      <form method="POST">{% csrf_token %}
         {{ food_form.as_p }}
         <button type="submit" class="submit btn btn-default">Save</button>
         <!-- <button type="submit" class="submit btn btn-default" name="delete">Delete</button> -->
@@ -17,11 +17,13 @@
     </div>
     <div class="col-sm-4">
       <h3>Current Items</h3><br>
-      {% for item in food %}
-        Name: {{ item.name }} <br />
-        Type: {{ item.food_type }} <br />
-        Food expires: {{ item.expiration_date }} <br />
-        <button type="submit" class="submit btn btn-default" name="delete">Delete</button> <br />
+      {% for food in foods %}
+        Name: {{ food.name }} <br />
+        Type: {{ food.food_type }} <br />
+        Food expires: {{ food.expiration_date }} <br />
+        <form method="POST">{% csrf_token %}
+          <button type="submit" class="submit btn btn-default" name="{{ food.name }}">Delete</button> <br />
+        </form>
       {% endfor %}
     </div>
     <div class="col-sm-2">
